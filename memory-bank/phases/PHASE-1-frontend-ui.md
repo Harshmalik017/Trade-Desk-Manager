@@ -20,6 +20,10 @@
 - [x] Bill tracker for Export (EDPMS) and Import (IDPMS) with filters
 - [x] Document checklist per lane with "Missing" flags
 - [x] Pitch tool: slider, package cards, retainers, proposal text with copy
+- [x] Public landing page with pricing and CTA to admin login
+- [x] Mock admin login and protected app routes for demo flow
+- [x] Pitch-ready interactions (channel, urgency, onboarding timeline)
+- [x] Reusable shadcn-style `components/ui` primitives and lucide icon integration
 - [x] Responsive layout and safe-area handling
 - [x] Memory bank created
 

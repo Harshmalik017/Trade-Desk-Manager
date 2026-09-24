@@ -2,9 +2,15 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { KeyRound, Mail, ShieldCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
 import { DEMO_ADMIN_EMAIL, DEMO_ADMIN_PASSWORD } from '@/lib/constants';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Card } from './ui/card';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
 
 export function AdminLogin({ nextPath }: { nextPath?: string }) {
   const router = useRouter();
@@ -33,36 +39,39 @@ export function AdminLogin({ nextPath }: { nextPath?: string }) {
 
   return (
     <section className="auth-wrap">
-      <div className="card auth-card">
+      <Card className="auth-card">
+        <Badge variant="secondary" className="auth-badge">
+          <ShieldCheck size={14} /> Secure demo access
+        </Badge>
         <h1>Admin login</h1>
         <p className="muted">Use the mock credentials below to access the desk dashboard and workflows.</p>
         <form onSubmit={submit}>
-          <label>
+          <Label>
             Email
-            <input
-              className="input"
+            <Input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="username"
               required
             />
-          </label>
-          <label>
+            <Mail size={14} className="field-icon" />
+          </Label>
+          <Label>
             Password
-            <input
-              className="input"
+            <Input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               required
             />
-          </label>
+            <KeyRound size={14} className="field-icon" />
+          </Label>
           {error && <p className="err">{error}</p>}
-          <button className="btn auth-btn" type="submit">
+          <Button className="auth-btn" type="submit">
             Open dashboard
-          </button>
+          </Button>
         </form>
         <div className="mock-box">
           <b>Mock credentials</b>
@@ -75,7 +84,7 @@ export function AdminLogin({ nextPath }: { nextPath?: string }) {
         <p className="note">
           <Link href="/">Back to landing page</Link>
         </p>
-      </div>
+      </Card>
     </section>
   );
 }

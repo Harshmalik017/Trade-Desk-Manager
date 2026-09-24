@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { Copy, MessageCircleMore, Send, Sparkles } from 'lucide-react';
 import { useDesk } from '@/context/desk-context';
 import { PACKAGES, RETAINERS, recommendPackage, recommendRetainer } from '@/lib/packages';
 import { buildProposal } from '@/lib/proposal';
@@ -8,6 +9,14 @@ import { formatINR } from '@/lib/utils';
 import { PageHeader } from './PageHeader';
 import { PlanCard } from './PlanCard';
 import { useToast } from './Toast';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Card } from './ui/card';
+import { Label } from './ui/label';
+import { Textarea } from './ui/textarea';
+
+type PitchChannel = 'WHATSAPP' | 'EMAIL';
+type PitchUrgency = 'STANDARD' | 'PRIORITY';
 
 export function PitchBuilder({ initialClientId }: { initialClientId?: string }) {
   const { clients, bills, clientById } = useDesk();
@@ -16,12 +25,25 @@ export function PitchBuilder({ initialClientId }: { initialClientId?: string }) 
   const [clientId, setClientId] = useState(
     initialClientId && clientById(initialClientId) ? initialClientId : clients[0].id,
   );
+  const [channel, setChannel] = useState<PitchChannel>('WHATSAPP');
+  const [urgency, setUrgency] = useState<PitchUrgency>('STANDARD');
+  const [includeTimeline, setIncludeTimeline] = useState(true);
   const textRef = useRef<HTMLTextAreaElement>(null);
 
   const client = clientById(clientId) ?? clients[0];
   const pkg = recommendPackage(count);
   const retainer = recommendRetainer(count);
-  const proposal = buildProposal(client, bills.filter((b) => b.clientId === client.id));
+  const expectedKickoff = urgency === 'PRIORITY' ? 'Within 24 hours' : 'Within 2 business days';
+
+  const proposal = useMemo(
+    () =>
+      buildProposal(client, bills.filter((b) => b.clientId === client.id), {
+        channel,
+        urgency,
+        includeTimeline,
+      }),
+    [bills, channel, client, includeTimeline, urgency],
+  );
 
   async function copy() {
     const text = textRef.current?.value ?? proposal;
@@ -34,15 +56,36 @@ export function PitchBuilder({ initialClientId }: { initialClientId?: string }) 
     }
   }
 
+  function copyQuickPitch() {
+    const opener = channel === 'EMAIL' ? 'Subject: EDPMS/IDPMS regularisation plan\n\n' : '';
+    const quick = [
+      opener,
+      `${client.name}: ${pkg.name} at ${formatINR(pkg.priceInr)}${pkg.key === 'PREMIUM' ? ' onwards' : ''}.`,
+      retainer
+        ? `Monthly retainer: ${formatINR(retainer.priceInr)} for up to ${retainer.maxBills} bills.`
+        : 'Monthly retainer: custom quote for more than 75 bills.',
+      `Kickoff: ${expectedKickoff}.`,
+    ].join(' ');
+    navigator.clipboard.writeText(quick).then(
+      () => toast('Quick pitch copied'),
+      () => toast('Could not copy quick pitch'),
+    );
+  }
+
   return (
     <>
       <PageHeader
         title="Pitch & packages"
-        subtitle="Show a client the right plan for their bill count, then send a proposal in one tap."
+        subtitle="Build a quote, tune the pitch tone, and send a client-ready message in one flow."
       />
 
-      <div className="card">
-        <h3 className="h3-sm">How many bills need regularising?</h3>
+      <Card>
+        <div className="row spread">
+          <h3 className="h3-sm">How many bills need regularising?</h3>
+          <Badge variant="secondary">
+            <Sparkles size={14} /> Pitch ready
+          </Badge>
+        </div>
         <div className="row">
           <input
             type="range"
@@ -66,7 +109,7 @@ export function PitchBuilder({ initialClientId }: { initialClientId?: string }) 
             <b>custom retainer quote above 75 bills.</b>
           )}
         </p>
-      </div>
+      </Card>
 
       <div className="grid plans">
         {PACKAGES.map((p) => (
@@ -87,25 +130,66 @@ export function PitchBuilder({ initialClientId }: { initialClientId?: string }) 
       </div>
 
       <h2 className="section">Proposal for a client</h2>
-      <div className="card">
-        <label className="row gap-bottom">
-          Client
-          <select value={clientId} onChange={(e) => setClientId(e.target.value)}>
-            {clients.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <textarea key={clientId} ref={textRef} defaultValue={proposal} aria-label="Proposal message" />
+      <Card>
+        <div className="grid g2 pitch-controls">
+          <Label>
+            Client
+            <select value={clientId} onChange={(e) => setClientId(e.target.value)}>
+              {clients.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </Label>
+          <Label>
+            Message channel
+            <select value={channel} onChange={(e) => setChannel(e.target.value as PitchChannel)}>
+              <option value="WHATSAPP">WhatsApp</option>
+              <option value="EMAIL">Email</option>
+            </select>
+          </Label>
+        </div>
+
         <div className="row actions">
-          <button className="btn" onClick={copy}>
-            Copy for WhatsApp / email
-          </button>
+          <Button variant={urgency === 'STANDARD' ? 'default' : 'outline'} onClick={() => setUrgency('STANDARD')}>
+            <MessageCircleMore size={16} /> Standard follow-up
+          </Button>
+          <Button variant={urgency === 'PRIORITY' ? 'default' : 'outline'} onClick={() => setUrgency('PRIORITY')}>
+            <Send size={16} /> Priority pitch
+          </Button>
+          <label className="check slim">
+            <input
+              type="checkbox"
+              checked={includeTimeline}
+              onChange={(e) => setIncludeTimeline(e.target.checked)}
+            />
+            Include onboarding timeline
+          </label>
+        </div>
+
+        <div className="pitch-ready card">
+          <div className="row spread">
+            <b>Pitch snapshot</b>
+            <span className="muted">Expected kickoff: {expectedKickoff}</span>
+          </div>
+          <p className="note">
+            {pkg.name} package · {retainer ? `${formatINR(retainer.priceInr)} monthly retainer` : 'Custom retainer'} ·{' '}
+            {channel === 'EMAIL' ? 'Email-ready script' : 'WhatsApp-ready script'}
+          </p>
+        </div>
+
+        <Textarea key={`${clientId}-${channel}-${urgency}-${includeTimeline}`} ref={textRef} defaultValue={proposal} aria-label="Proposal message" />
+        <div className="row actions">
+          <Button onClick={copy}>
+            <Copy size={16} /> Copy full proposal
+          </Button>
+          <Button variant="outline" onClick={copyQuickPitch}>
+            <Copy size={16} /> Copy quick pitch
+          </Button>
         </div>
         <p className="note">The proposal is built from this client&apos;s live bill data, so the numbers stay accurate.</p>
-      </div>
+      </Card>
     </>
   );
 }

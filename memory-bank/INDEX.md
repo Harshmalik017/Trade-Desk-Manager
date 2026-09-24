@@ -9,8 +9,8 @@ Read this file first in every session. It tells you where everything is and what
 | Product | BillClear Desk, a client and bill management desk for EDPMS / IDPMS regularisation services |
 | Owner | Former HDFC Bank Trade Desk Manager, now running an independent trade-compliance consultancy |
 | Users | Owner and associates (internal); premium exporter and importer clients (later, read-only) |
-| Current phase | **Phase 1 complete** (frontend UI, mock data). **Phase 2 (backend) is next.** |
-| Stack (Phase 1) | Next.js 15 App Router, React 19, TypeScript, plain CSS with design tokens |
+| Current phase | **Phase 1 complete + go-to-market UX enhancements** (landing, mock admin login, interactive pitch-ready flow). **Phase 2 (backend) is next.** |
+| Stack (Phase 1) | Next.js 15 App Router, React 19, TypeScript, plain CSS with design tokens, Lucide icons, shadcn-style reusable UI primitives |
 | Data | In-memory mock data (`src/lib/mock-data.ts`), no persistence yet |
 
 ## Read order

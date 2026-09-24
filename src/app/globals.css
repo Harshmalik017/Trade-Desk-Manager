@@ -55,6 +55,8 @@ main { max-width: 1120px; margin: 0 auto; padding: 22px 20px 60px; }
 .hero p { max-width: 760px; margin: 0; color: var(--mute); }
 .cta { margin-top: 26px; text-align: center; }
 .cta h2 { margin-bottom: 8px; }
+.pitch-metrics { margin-top: 14px; }
+.step-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--soft); color: var(--brand); display: grid; place-items: center; margin-bottom: 8px; }
 .kpi b { display: block; font: 700 30px 'Bricolage Grotesque', sans-serif; }
 .kpi span { color: var(--mute); font-size: 13px; }
 .lane { border-left: 5px solid var(--ex); }
@@ -104,6 +106,42 @@ tbody tr.clickable:hover, tbody tr.sel { background: var(--soft); }
 .auth-btn { width: 100%; margin-top: 4px; }
 .mock-box { margin-top: 14px; border: 1px dashed var(--line); border-radius: 10px; padding: 10px 12px; }
 .err { margin: 0; color: var(--bad); font-size: 14px; }
+.auth-badge { width: fit-content; margin-bottom: 8px; }
+.field-icon { display: none; }
+.cta-btn { margin-top: 8px; }
+
+.pitch-controls { margin-bottom: 10px; }
+.pitch-ready { margin: 10px 0 12px; background: color-mix(in srgb, var(--soft) 55%, var(--panel)); }
+.check.slim { border-bottom: 0; padding: 0; font-size: 14px; }
+
+.ui-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9px; font-weight: 600; border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: background-color .15s, color .15s, border-color .15s; }
+.ui-btn-md { padding: 7px 14px; }
+.ui-btn-sm { padding: 4px 10px; font-size: 13px; }
+.ui-btn-lg { padding: 10px 16px; }
+.ui-btn-icon { width: 34px; height: 34px; padding: 0; }
+.ui-btn-default { background: var(--brand); border-color: var(--brand); color: var(--brandink); }
+.ui-btn-default:hover { filter: brightness(0.95); }
+.ui-btn-ghost { background: transparent; border-color: transparent; color: var(--brand); }
+.ui-btn-ghost:hover { background: var(--soft); }
+.ui-btn-outline { background: transparent; border-color: var(--line); color: var(--ink); }
+.ui-btn-outline:hover { background: var(--soft); }
+
+.ui-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
+.ui-badge-default { background: var(--soft); color: var(--brand); }
+.ui-badge-secondary { background: color-mix(in srgb, var(--brand) 20%, transparent); color: var(--brand); }
+.ui-badge-outline { border: 1px solid var(--line); color: var(--mute); }
+
+.ui-label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.ui-input, .ui-textarea {
+  width: 100%;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+}
+.ui-input { padding: 9px 10px; }
+.ui-textarea { min-height: 220px; padding: 12px; resize: vertical; }
 
 nav a:focus-visible, .btn:focus-visible, .chip:focus-visible, .seg a:focus-visible, a:focus-visible,
 input:focus-visible, select:focus-visible, textarea:focus-visible, tr:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }

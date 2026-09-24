@@ -2,7 +2,11 @@
 
 ## Active context
 
-- Phase 1 (frontend UI on mock data) is complete and builds cleanly.
+- Phase 1 (frontend UI on mock data) is complete and now includes launch-ready UX improvements:
+  - public landing and pricing page,
+  - mock admin login and protected dashboard routes,
+  - interactive pitch-ready proposal controls,
+  - reusable shadcn-style UI primitives and lucide icon system.
 - Next up: Phase 2 kickoff. Confirm the backend stack (TRD section 7) and write ADR-001.
 
 ## Changelog
@@ -12,6 +16,9 @@
 | 2026-09-25 | HTML mockup created and approved as the design reference |
 | 2026-09-25 | Converted to Next.js 15 project: dashboard, clients, bill tracker (export and import), pitch tool |
 | 2026-09-25 | Memory bank created: INDEX, PRD, TRD, MODULES, PROGRESS, five phase plans |
+| 2026-09-25 | Added public landing page and pricing, mock admin login, protected app routes, and dashboard moved to `/dashboard` |
+| 2026-09-25 | Added interactive pitch-ready controls (channel, urgency, timeline), reusable UI primitives, and lucide icons |
+| 2026-09-25 | Documented required frontend image asset list for `public/images/*` in README |
 
 ## Decisions
 
@@ -25,6 +32,7 @@
 ## Known gaps in Phase 1
 
 - No persistence; refresh resets changes.
+- Admin auth is mock-only via local storage (no backend identity, no RBAC enforcement).
 - "Add client", "Log bank follow-up" and "Copy client update" are placeholders showing a toast.
 - Fonts are loaded from Google Fonts via `<link>`; switch to `next/font` on deploy.
 - No automated tests yet (planned from Phase 2).

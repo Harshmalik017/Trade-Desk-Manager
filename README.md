@@ -17,6 +17,20 @@ npm run lint
 
 Requires Node.js 18.18 or newer.
 
+## Frontend image assets to add in `public/`
+
+Generate these with ChatGPT image tools and place at the exact paths below:
+
+| Path | Recommended size | Use |
+|---|---|---|
+| `public/images/landing-hero-desk.jpg` | 1600×900 | Main hero visual for landing page |
+| `public/images/landing-workflow-card.jpg` | 1200×800 | Workflow explainer section |
+| `public/images/pricing-plans-bg.jpg` | 1600×900 | Pricing section background texture |
+| `public/images/dashboard-preview.jpg` | 1600×1000 | Dashboard preview screenshot/mockup |
+| `public/images/client-success.jpg` | 1200×800 | Trust / social proof block |
+| `public/images/logo-mark.png` | 512×512 (transparent) | Product logo mark for branding |
+| `public/images/og-cover.jpg` | 1200×630 | Social preview image |
+
 ## What is in Phase 1
 
 | Route | Screen |

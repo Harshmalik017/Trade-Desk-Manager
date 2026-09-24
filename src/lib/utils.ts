@@ -1,3 +1,5 @@
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { DEMO_TODAY } from './constants';
 import type { Bill } from './types';
 
@@ -14,3 +16,7 @@ export const daysOverdue = (bill: Bill) =>
 export const isOpen = (bill: Bill) => bill.status !== 'CLOSED';
 
 export const docsDone = (bill: Bill) => bill.docs.filter(Boolean).length;
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

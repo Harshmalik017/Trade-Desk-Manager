@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { LogOut } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
+import { Button } from './ui/button';
 
 const APP_TABS = [
   { href: '/dashboard', label: 'Dashboard', match: '/dashboard' },
@@ -50,9 +52,9 @@ export function AppHeader() {
         {showAppNav ? (
           <>
             <span>{adminEmail}</span>
-            <button className="btn ghost sm" onClick={logout}>
-              Logout
-            </button>
+            <Button variant="ghost" size="sm" onClick={logout}>
+              <LogOut size={14} /> Logout
+            </Button>
           </>
         ) : (
           <span>Trade compliance desk · Sept 2026</span>
