@@ -13,6 +13,14 @@ const APP_TABS = [
   { href: '/pitch', label: 'Pitch & packages', match: '/pitch' },
 ];
 
+const WEBSITE_TABS = [
+  { href: '/', label: 'Home', match: '/' },
+  { href: '/about', label: 'About', match: '/about' },
+  { href: '/services', label: 'Our services', match: '/services' },
+  { href: '/pricing', label: 'Pricing', match: '/pricing' },
+  { href: '/connect', label: 'Connect with us', match: '/connect' },
+];
+
 export function AppHeader() {
   const pathname = usePathname();
   const { isReady, isAuthenticated, adminEmail, logout } = useAuth();
@@ -37,17 +45,20 @@ export function AppHeader() {
               </Link>
             ))
           : (
-            <>
-              <Link href="/" className={isActive('/') ? 'on' : ''}>
-                Home
+            WEBSITE_TABS.map((t) => (
+              <Link key={t.href} href={t.href} className={isActive(t.match) ? 'on' : ''}>
+                {t.label}
               </Link>
-              <Link href="/#pricing">Pricing</Link>
-              <Link href="/admin/login" className={pathname.startsWith('/admin/login') ? 'on' : ''}>
-                Admin login
-              </Link>
-            </>
+            ))
           )}
       </nav>
+      {!showAppNav && (
+        <Button asChild size="sm">
+          <Link href="/admin/login" aria-current={pathname.startsWith('/admin/login') ? 'page' : undefined}>
+            Login
+          </Link>
+        </Button>
+      )}
       <div className="me">
         {showAppNav ? (
           <>

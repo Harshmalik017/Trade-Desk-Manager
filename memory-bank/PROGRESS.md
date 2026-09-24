@@ -3,7 +3,7 @@
 ## Active context
 
 - Phase 1 (frontend UI on mock data) is complete and now includes launch-ready UX improvements:
-  - public landing and pricing page,
+  - multi-page public website (Home, About, Services, Pricing, Connect),
   - mock admin login and protected dashboard routes,
   - interactive pitch-ready proposal controls,
   - reusable shadcn-style UI primitives and lucide icon system.
@@ -19,6 +19,7 @@
 | 2026-09-25 | Added public landing page and pricing, mock admin login, protected app routes, and dashboard moved to `/dashboard` |
 | 2026-09-25 | Added interactive pitch-ready controls (channel, urgency, timeline), reusable UI primitives, and lucide icons |
 | 2026-09-25 | Documented required frontend image asset list for `public/images/*` in README |
+| 2026-09-25 | Expanded to colorful multi-page marketing website (`/`, `/about`, `/services`, `/pricing`, `/connect`) and moved login button after header menu items |
 
 ## Decisions
 

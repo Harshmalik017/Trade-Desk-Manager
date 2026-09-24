@@ -1,8 +1,13 @@
 import Link from 'next/link';
-import { ArrowRight, CircleCheckBig, HandCoins, ShieldCheck, TimerReset } from 'lucide-react';
-import { PACKAGES, RETAINERS } from '@/lib/packages';
-import { formatINR } from '@/lib/utils';
-import { PlanCard } from './PlanCard';
+import {
+  ArrowRight,
+  CircleCheckBig,
+  HandCoins,
+  MessageSquareMore,
+  ShieldCheck,
+  TimerReset,
+  Users,
+} from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -28,12 +33,12 @@ const STEPS = [
 export function LandingPage() {
   return (
     <>
-      <section className="hero card">
-        <Badge>Trade desk workflow</Badge>
-        <h1>Close EDPMS and IDPMS bills faster with one operating desk</h1>
+      <section className="hero card colorful">
+        <Badge>Pitch-ready trade desk website</Badge>
+        <h1>Close EDPMS and IDPMS bills faster with a colorful, client-ready desk</h1>
         <p>
-          BillClear Desk gives your team a clear dashboard for pending bills, due-date follow-ups, package selection,
-          and client-facing proposals.
+          BillClear Desk gives your team a modern platform for pending bills, due-date follow-ups, package selection,
+          and polished client communication.
         </p>
         <div className="row actions">
           <Button asChild>
@@ -41,14 +46,19 @@ export function LandingPage() {
               Admin login <ArrowRight size={16} />
             </Link>
           </Button>
-          <Button asChild variant="ghost">
-            <a href="#pricing">
-              <HandCoins size={16} /> View pricing
-            </a>
-          </Button>
           <Button asChild variant="outline">
-            <Link href="/dashboard">
-              Dashboard preview <ArrowRight size={16} />
+            <Link href="/services">
+              <Users size={16} /> Explore services
+            </Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link href="/pricing">
+              <HandCoins size={16} /> View pricing
+            </Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link href="/connect">
+              <MessageSquareMore size={16} /> Connect with us
             </Link>
           </Button>
         </div>
@@ -91,36 +101,61 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="pricing">
-        <h2 className="section">One-time regularisation plans</h2>
-        <div className="grid plans">
-          {PACKAGES.map((pkg, index) => (
-            <PlanCard key={pkg.key} pkg={pkg} highlight={index === 1} />
-          ))}
-        </div>
-      </section>
-
       <section>
-        <h2 className="section">Monthly retainers</h2>
-        <div className="grid retainers">
-          {RETAINERS.map((retainer) => (
-            <Card key={retainer.maxBills} className="plan">
-              <small className="muted">Up to {retainer.maxBills} bills</small>
-              <div className="price">
-                {formatINR(retainer.priceInr)} <small className="muted">/ month</small>
-              </div>
-              <p className="note">Includes lane-wise tracking, discrepancy support, and periodic follow-up reporting.</p>
-            </Card>
-          ))}
+        <h2 className="section">Why teams choose BillClear Desk</h2>
+        <div className="grid g3">
+          <Card>
+            <h3 className="h3-sm">Clarity across every bill</h3>
+            <p className="muted">
+              Every bill is tracked from documentation to final closure support, with no mixing of export and import
+              lanes.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="h3-sm">Founder-led expertise</h3>
+            <p className="muted">
+              Built by an ex-bank trade desk manager to align with real AD bank workflows and practical follow-up
+              cycles.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="h3-sm">Pitch and propose quickly</h3>
+            <p className="muted">
+              Use pricing and pitch flows to send clean package options in minutes via WhatsApp or email.
+            </p>
+          </Card>
         </div>
       </section>
 
       <section className="card cta">
-        <h2>Ready to run the desk live?</h2>
-        <p className="muted">Log in as admin to open dashboard, clients, bill tracker, and pitch tools.</p>
-        <Button asChild variant="outline" className="cta-btn">
-          <Link href="/admin/login">
-            Continue to admin login <ArrowRight size={16} />
+        <h2>Explore the complete website</h2>
+        <p className="muted">
+          Visit About, Our Services, Pricing, and Connect pages, then log in to continue with the admin workflow.
+        </p>
+        <div className="row actions cta-links">
+          <Button asChild variant="outline" className="cta-btn">
+            <Link href="/about">About us</Link>
+          </Button>
+          <Button asChild variant="outline" className="cta-btn">
+            <Link href="/services">Our services</Link>
+          </Button>
+          <Button asChild variant="outline" className="cta-btn">
+            <Link href="/pricing">Pricing plans</Link>
+          </Button>
+          <Button asChild className="cta-btn">
+            <Link href="/admin/login">
+              Continue to login <ArrowRight size={16} />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      <section className="card soft">
+        <h2>Need a call before onboarding?</h2>
+        <p className="muted">Share your bill count and we will suggest the right package and execution timeline.</p>
+        <Button asChild variant="ghost">
+          <Link href="/connect">
+            Connect with us <ArrowRight size={16} />
           </Link>
         </Button>
       </section>

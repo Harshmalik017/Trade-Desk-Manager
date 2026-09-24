@@ -21,6 +21,7 @@
 - [x] Document checklist per lane with "Missing" flags
 - [x] Pitch tool: slider, package cards, retainers, proposal text with copy
 - [x] Public landing page with pricing and CTA to admin login
+- [x] Colorful multi-page marketing website (Home, About, Services, Pricing, Connect)
 - [x] Mock admin login and protected app routes for demo flow
 - [x] Pitch-ready interactions (channel, urgency, onboarding timeline)
 - [x] Reusable shadcn-style `components/ui` primitives and lucide icon integration

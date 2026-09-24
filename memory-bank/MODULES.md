@@ -6,7 +6,7 @@ Status legend: **Done** built and working on mock data, **Planned**, **Later** b
 |---|---|---|---|---|---|---|
 | M1 | App shell | Header, navigation, providers, theme tokens | all | `app/layout.tsx`, `components/AppHeader.tsx`, `app/globals.css` | Done | 1 |
 | M2 | Dashboard | KPIs, Export and Import lanes, today's follow-ups | `/dashboard` | `components/DashboardView.tsx`, `LaneCard.tsx`, `StatusBar.tsx`, `KpiCard.tsx` | Done | 1 |
-| M2A | Landing and pricing | Public-facing landing page with pricing and CTA | `/` | `components/LandingPage.tsx`, `app/page.tsx` | Done | 1 |
+| M2A | Marketing website | Public-facing Home, About, Services, Pricing, and Connect pages with CTA flow | `/`, `/about`, `/services`, `/pricing`, `/connect` | `components/LandingPage.tsx`, `components/AboutPage.tsx`, `components/ServicesPage.tsx`, `components/PricingPage.tsx`, `components/ConnectPage.tsx`, `app/page.tsx` | Done | 1 |
 | M2B | Admin auth (mock) | Demo admin login and route protection | `/admin/login` | `context/auth-context.tsx`, `components/AdminLogin.tsx`, `components/ProtectedRoute.tsx` | Done (mock) | 1 |
 | M3 | Clients | Client list, detail, bills split by lane, suggested package | `/clients`, `/clients/[id]` | `components/ClientList.tsx`, `ClientDetail.tsx` | Done | 1 |
 | M4 | Bill tracker | Per-lane bill table, status filter, detail panel | `/bills/export`, `/bills/import` | `components/BillTracker.tsx`, `BillDetail.tsx`, `DueTag.tsx` | Done | 1 |

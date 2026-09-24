@@ -35,7 +35,11 @@ Generate these with ChatGPT image tools and place at the exact paths below:
 
 | Route | Screen |
 |---|---|
-| `/` | Landing page with workflow summary and pricing |
+| `/` | Colorful Home page with workflow summary and CTAs |
+| `/about` | About page with founder-fit and operating model highlights |
+| `/services` | Our Services page with execution support details |
+| `/pricing` | Dedicated pricing page with packages and retainers |
+| `/connect` | Connect With Us page with consultation channels |
 | `/admin/login` | Admin login with mock credentials |
 | `/dashboard` | Dashboard: KPIs, Export and Import lanes, today's bank follow-ups |
 | `/clients` | Client list with open export and import bills and a suggested package |

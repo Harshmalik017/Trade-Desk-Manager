@@ -39,12 +39,15 @@ export function AdminLogin({ nextPath }: { nextPath?: string }) {
 
   return (
     <section className="auth-wrap">
-      <Card className="auth-card">
+      <Card className="auth-card colorful">
         <Badge variant="secondary" className="auth-badge">
           <ShieldCheck size={14} /> Secure demo access
         </Badge>
         <h1>Admin login</h1>
-        <p className="muted">Use the mock credentials below to access the desk dashboard and workflows.</p>
+        <p className="muted">
+          Use the mock credentials below to access the dashboard and internal workflows after exploring the website
+          pages.
+        </p>
         <form onSubmit={submit}>
           <Label>
             Email
@@ -82,7 +85,7 @@ export function AdminLogin({ nextPath }: { nextPath?: string }) {
           </p>
         </div>
         <p className="note">
-          <Link href="/">Back to landing page</Link>
+          <Link href="/">Back to Home</Link> · <Link href="/connect">Connect with us</Link>
         </p>
       </Card>
     </section>
