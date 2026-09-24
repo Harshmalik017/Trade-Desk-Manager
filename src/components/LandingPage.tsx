@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  ArrowRight,
   CircleCheckBig,
   HandCoins,
   MessageSquareMore,
@@ -22,16 +21,19 @@ const STEPS = [
     title: '1) Intake and lane mapping',
     text: 'Separate export (EDPMS) and import (IDPMS) bills and identify pending actions per lane.',
     icon: ShieldCheck,
+    tone: 'from-cyan-100 to-cyan-50 dark:from-cyan-900/40 dark:to-cyan-900/20',
   },
   {
     title: '2) Reconciliation and document checks',
     text: 'Review invoice, shipping, remittance, and bank-side records against every open bill.',
     icon: CircleCheckBig,
+    tone: 'from-violet-100 to-violet-50 dark:from-violet-900/40 dark:to-violet-900/20',
   },
   {
     title: '3) Follow-up and closure support',
     text: 'Track ageing, coordinate with AD banks, and push cases from docs-pending to closure.',
     icon: TimerReset,
+    tone: 'from-emerald-100 to-emerald-50 dark:from-emerald-900/40 dark:to-emerald-900/20',
   },
 ];
 
@@ -66,11 +68,6 @@ export function LandingPage() {
               selection, and polished client communication.
             </p>
             <div className="row actions">
-              <Button asChild>
-                <Link href="/admin/login">
-                  Admin login <ArrowRight size={16} />
-                </Link>
-              </Button>
               <Button asChild variant="outline">
                 <Link href="/services">
                   <Users size={16} /> Explore services
@@ -126,7 +123,7 @@ export function LandingPage() {
           {STEPS.map((step) => {
             const Icon = step.icon;
             return (
-              <Card key={step.title}>
+              <Card key={step.title} className={`bg-gradient-to-br ${step.tone}`}>
                 <div className="step-icon">
                   <Icon size={18} />
                 </div>
@@ -139,7 +136,7 @@ export function LandingPage() {
       </section>
 
       <section>
-        <h2 className="section">Why teams choose BillClear Desk</h2>
+        <h2 className="section">Why choose Us</h2>
         <div className="grid g3">
           <Card>
             <h3 className="h3-sm">Clarity across every bill</h3>
@@ -158,7 +155,7 @@ export function LandingPage() {
           <Card>
             <h3 className="h3-sm">Pitch and propose quickly</h3>
             <p className="muted">
-              Use structured pricing and package workflows to align internal teams and speed up client onboarding.
+              Use structured pricing and package workflows to align internal teams and speed up onboarding.
             </p>
           </Card>
         </div>
@@ -211,37 +208,21 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="card cta">
-        <h2>Explore the complete website</h2>
-        <p className="muted">
-          Visit About, Our Services, Pricing, and Connect pages, then log in to continue with the admin workflow.
-        </p>
-        <div className="row actions cta-links">
-          <Button asChild variant="outline" className="cta-btn">
-            <Link href="/about">About us</Link>
+      <section className="card soft">
+        <h2>Need a consultation before onboarding?</h2>
+        <p className="muted">Share your bill count and get a right-fit execution plan with timeline clarity.</p>
+        <div className="row actions">
+          <Button asChild variant="outline">
+            <Link href="/pricing">
+              <HandCoins size={16} /> Review pricing
+            </Link>
           </Button>
-          <Button asChild variant="outline" className="cta-btn">
-            <Link href="/services">Our services</Link>
-          </Button>
-          <Button asChild variant="outline" className="cta-btn">
-            <Link href="/pricing">Pricing plans</Link>
-          </Button>
-          <Button asChild className="cta-btn">
-            <Link href="/admin/login">
-              Continue to login <ArrowRight size={16} />
+          <Button asChild variant="ghost">
+            <Link href="/connect">
+              <MessageSquareMore size={16} /> Connect with us
             </Link>
           </Button>
         </div>
-      </section>
-
-      <section className="card soft">
-        <h2>Need a call before onboarding?</h2>
-        <p className="muted">Share your bill count and we will suggest the right package and execution timeline.</p>
-        <Button asChild variant="ghost">
-          <Link href="/connect">
-            Connect with us <ArrowRight size={16} />
-          </Link>
-        </Button>
       </section>
     </>
   );

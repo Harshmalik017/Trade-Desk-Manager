@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Building2, Landmark, ShieldCheck, Sparkles, UsersRound } from 'lucide-react';
+import { Building2, Landmark, Sparkles, UsersRound } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -38,13 +38,13 @@ export function AboutPage() {
               closure support using structured reconciliation, documentation checks, and disciplined bank follow-ups.
             </p>
           </div>
-          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+          <div className="mx-auto max-w-[220px]">
             <Image
               src="/Nikhil-Goswami.png"
               alt="Consultant Nikhil Goswami"
               width={433}
               height={577}
-              className="h-full w-full object-cover"
+              className="h-auto w-full rounded-lg object-contain"
             />
           </div>
         </div>
@@ -77,11 +77,6 @@ export function AboutPage() {
         <div className="row actions">
           <Button asChild>
             <Link href="/services">Explore our services</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/admin/login">
-              <ShieldCheck size={16} /> Admin login
-            </Link>
           </Button>
         </div>
       </section>

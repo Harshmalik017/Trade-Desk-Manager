@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -92,9 +92,7 @@ export function ConnectPage() {
             <Link href="/pricing">See pricing first</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/admin/login">
-              <ShieldCheck size={16} /> Continue to login
-            </Link>
+            <Link href="/services">Explore services</Link>
           </Button>
         </div>
       </section>

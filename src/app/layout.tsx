@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import { AppFooter } from '@/components/AppFooter';
 import { AppHeader } from '@/components/AppHeader';
 import { ToastProvider } from '@/components/Toast';
 import { AuthProvider } from '@/context/auth-context';
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <DeskProvider>
               <AppHeader />
               <main>{children}</main>
+              <AppFooter />
             </DeskProvider>
           </ToastProvider>
         </AuthProvider>
