@@ -1,10 +1,10 @@
-import { ClientList } from '@/components/ClientList';
+import { DashboardView } from '@/components/DashboardView';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function Page() {
   return (
     <ProtectedRoute>
-      <ClientList />
+      <DashboardView />
     </ProtectedRoute>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { AppHeader } from '@/components/AppHeader';
 import { ToastProvider } from '@/components/Toast';
+import { AuthProvider } from '@/context/auth-context';
 import { DeskProvider } from '@/context/desk-context';
 import './globals.css';
 
@@ -29,12 +30,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <ToastProvider>
-          <DeskProvider>
-            <AppHeader />
-            <main>{children}</main>
-          </DeskProvider>
-        </ToastProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <DeskProvider>
+              <AppHeader />
+              <main>{children}</main>
+            </DeskProvider>
+          </ToastProvider>
+        </AuthProvider>
       </body>
     </html>
   );

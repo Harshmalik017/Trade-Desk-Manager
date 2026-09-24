@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/context/auth-context';
 
-const TABS = [
-  { href: '/', label: 'Dashboard', match: '/' },
+const APP_TABS = [
+  { href: '/dashboard', label: 'Dashboard', match: '/dashboard' },
   { href: '/clients', label: 'Clients', match: '/clients' },
   { href: '/bills/export', label: 'Bill tracker', match: '/bills' },
   { href: '/pitch', label: 'Pitch & packages', match: '/pitch' },
@@ -12,24 +13,51 @@ const TABS = [
 
 export function AppHeader() {
   const pathname = usePathname();
+  const { isReady, isAuthenticated, adminEmail, logout } = useAuth();
   const isActive = (match: string) => (match === '/' ? pathname === '/' : pathname.startsWith(match));
+  const showAppNav = isReady && isAuthenticated;
 
   return (
     <header>
-      <div className="logo">BillClear Desk</div>
+      <Link href={showAppNav ? '/dashboard' : '/'} className="logo">
+        BillClear Desk
+      </Link>
       <nav aria-label="Main">
-        {TABS.map((t) => (
-          <Link
-            key={t.href}
-            href={t.href}
-            className={isActive(t.match) ? 'on' : ''}
-            aria-current={isActive(t.match) ? 'page' : undefined}
-          >
-            {t.label}
-          </Link>
-        ))}
+        {showAppNav
+          ? APP_TABS.map((t) => (
+              <Link
+                key={t.href}
+                href={t.href}
+                className={isActive(t.match) ? 'on' : ''}
+                aria-current={isActive(t.match) ? 'page' : undefined}
+              >
+                {t.label}
+              </Link>
+            ))
+          : (
+            <>
+              <Link href="/" className={isActive('/') ? 'on' : ''}>
+                Home
+              </Link>
+              <Link href="/#pricing">Pricing</Link>
+              <Link href="/admin/login" className={pathname.startsWith('/admin/login') ? 'on' : ''}>
+                Admin login
+              </Link>
+            </>
+          )}
       </nav>
-      <div className="me">Trade compliance desk · Sept 2026</div>
+      <div className="me">
+        {showAppNav ? (
+          <>
+            <span>{adminEmail}</span>
+            <button className="btn ghost sm" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <span>Trade compliance desk · Sept 2026</span>
+        )}
+      </div>
     </header>
   );
 }

@@ -1,5 +1,10 @@
 import { BillTracker } from '@/components/BillTracker';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function Page() {
-  return <BillTracker lane="IM" />;
+  return (
+    <ProtectedRoute>
+      <BillTracker lane="IM" />
+    </ProtectedRoute>
+  );
 }

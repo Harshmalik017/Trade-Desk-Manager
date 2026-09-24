@@ -21,7 +21,9 @@ Requires Node.js 18.18 or newer.
 
 | Route | Screen |
 |---|---|
-| `/` | Dashboard: KPIs, Export and Import lanes, today's bank follow-ups |
+| `/` | Landing page with workflow summary and pricing |
+| `/admin/login` | Admin login with mock credentials |
+| `/dashboard` | Dashboard: KPIs, Export and Import lanes, today's bank follow-ups |
 | `/clients` | Client list with open export and import bills and a suggested package |
 | `/clients/[id]` | Client detail with export and import bills kept apart |
 | `/bills/export` | Export (EDPMS) bill tracker with document checklist |
@@ -30,6 +32,11 @@ Requires Node.js 18.18 or newer.
 
 All data is mock data in `src/lib/mock-data.ts`. Changes (status, document ticks) live in memory
 only and reset on refresh. Persistence arrives in Phase 2.
+
+### Demo admin credentials
+
+- Email: `admin@billcleardesk.demo`
+- Password: `Desk@2026`
 
 ## Project memory bank
 

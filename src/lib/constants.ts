@@ -46,3 +46,7 @@ export const DOC_CHECKLISTS: Record<Lane, string[]> = {
 
 export const DISCLAIMER =
   'Final regularization is subject to verification and processing by the concerned AD Bank/authority.';
+
+/** Mock admin credentials for demo login only. */
+export const DEMO_ADMIN_EMAIL = 'admin@billcleardesk.demo';
+export const DEMO_ADMIN_PASSWORD = 'Desk@2026';

@@ -1,5 +1,10 @@
 import { PitchBuilder } from '@/components/PitchBuilder';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 export default function Page() {
-  return <PitchBuilder />;
+  return (
+    <ProtectedRoute>
+      <PitchBuilder />
+    </ProtectedRoute>
+  );
 }
