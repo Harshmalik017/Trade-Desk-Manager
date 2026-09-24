@@ -1,12 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   CircleCheckBig,
   HandCoins,
   MessageSquareMore,
+  Quote,
   ShieldCheck,
+  Star,
   TimerReset,
+  Trophy,
   Users,
+  Verified,
 } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -30,37 +35,69 @@ const STEPS = [
   },
 ];
 
+const TESTIMONIALS = [
+  {
+    name: 'CFO, Engineering Export House',
+    rating: 5,
+    text: 'Their follow-up discipline and document mapping reduced our long-pending export bill backlog drastically.',
+  },
+  {
+    name: 'Director, Specialty Chemicals Importer',
+    rating: 5,
+    text: 'Clear lane-wise tracking and practical advisory gave us confidence with every bank interaction.',
+  },
+  {
+    name: 'Finance Head, Textile Group',
+    rating: 5,
+    text: 'The team helped us structure pending cases and move them ahead with sharp, actionable updates.',
+  },
+];
+
 export function LandingPage() {
   return (
     <>
-      <section className="hero card colorful">
-        <Badge>Pitch-ready trade desk website</Badge>
-        <h1>Close EDPMS and IDPMS bills faster with a colorful, client-ready desk</h1>
-        <p>
-          BillClear Desk gives your team a modern platform for pending bills, due-date follow-ups, package selection,
-          and polished client communication.
-        </p>
-        <div className="row actions">
-          <Button asChild>
-            <Link href="/admin/login">
-              Admin login <ArrowRight size={16} />
-            </Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/services">
-              <Users size={16} /> Explore services
-            </Link>
-          </Button>
-          <Button asChild variant="ghost">
-            <Link href="/pricing">
-              <HandCoins size={16} /> View pricing
-            </Link>
-          </Button>
-          <Button asChild variant="ghost">
-            <Link href="/connect">
-              <MessageSquareMore size={16} /> Connect with us
-            </Link>
-          </Button>
+      <section className="hero card colorful overflow-hidden">
+        <div className="grid items-center gap-5 md:grid-cols-2">
+          <div>
+            <Badge>Pitch-ready trade desk website</Badge>
+            <h1>Close EDPMS and IDPMS bills faster with a colorful, client-ready desk</h1>
+            <p>
+              BillClear Desk gives your team a modern platform for pending bills, due-date follow-ups, package
+              selection, and polished client communication.
+            </p>
+            <div className="row actions">
+              <Button asChild>
+                <Link href="/admin/login">
+                  Admin login <ArrowRight size={16} />
+                </Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/services">
+                  <Users size={16} /> Explore services
+                </Link>
+              </Button>
+              <Button asChild variant="ghost">
+                <Link href="/pricing">
+                  <HandCoins size={16} /> View pricing
+                </Link>
+              </Button>
+              <Button asChild variant="ghost">
+                <Link href="/connect">
+                  <MessageSquareMore size={16} /> Connect with us
+                </Link>
+              </Button>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+            <Image
+              src="/1.png"
+              alt="BillClear Desk dashboard and trade-compliance operations preview"
+              width={664}
+              height={395}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
         </div>
       </section>
 
@@ -78,8 +115,8 @@ export function LandingPage() {
           <span>Checklist-based reconciliation per lane</span>
         </Card>
         <Card className="kpi">
-          <b>1-click pitch</b>
-          <span>Generate proposal text for WhatsApp and email instantly</span>
+          <b>Fast onboarding</b>
+          <span>Recommend the right package and move from discovery to execution quickly</span>
         </Card>
       </section>
 
@@ -121,9 +158,56 @@ export function LandingPage() {
           <Card>
             <h3 className="h3-sm">Pitch and propose quickly</h3>
             <p className="muted">
-              Use pricing and pitch flows to send clean package options in minutes via WhatsApp or email.
+              Use structured pricing and package workflows to align internal teams and speed up client onboarding.
             </p>
           </Card>
+        </div>
+      </section>
+
+      <section className="card soft">
+        <h2 className="section mt-0">Trust factors</h2>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Card>
+            <div className="step-icon">
+              <Trophy size={18} />
+            </div>
+            <h3 className="h3-sm">5+ years experience</h3>
+            <p className="muted">Focused trade-compliance and bill regularisation support across banking workflows.</p>
+          </Card>
+          <Card>
+            <div className="step-icon">
+              <Users size={18} />
+            </div>
+            <h3 className="h3-sm">50+ clients handled</h3>
+            <p className="muted">Supported exporters and importers through structured closure-oriented engagement.</p>
+          </Card>
+          <Card>
+            <div className="step-icon">
+              <Verified size={18} />
+            </div>
+            <h3 className="h3-sm">Banking + independent consultant background</h3>
+            <p className="muted">Combines institutional process depth with founder-led consulting agility.</p>
+          </Card>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="section">Client testimonials</h2>
+        <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+          {TESTIMONIALS.map((item) => (
+            <Card key={item.name} className="min-w-[280px] snap-start sm:min-w-[360px]">
+              <div className="mb-3 flex items-center justify-between">
+                <div className="flex items-center gap-1 text-amber-500">
+                  {Array.from({ length: item.rating }).map((_, i) => (
+                    <Star key={`${item.name}-${i}`} size={15} fill="currentColor" />
+                  ))}
+                </div>
+                <Quote size={16} className="text-violet-500" />
+              </div>
+              <p className="muted">{item.text}</p>
+              <p className="mt-3 text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</p>
+            </Card>
+          ))}
         </div>
       </section>
 

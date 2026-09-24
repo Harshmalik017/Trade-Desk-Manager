@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, CircleCheckBig, FileSearch2, Handshake, TimerReset } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -31,12 +32,25 @@ export function ServicesPage() {
   return (
     <>
       <section className="card hero colorful">
-        <Badge>Our services</Badge>
-        <h1>Execution support for trade-desk regularisation workflows</h1>
-        <p>
-          We combine domain-first operations with simple dashboards so your team sees what is pending, why it is
-          blocked, and what to do next.
-        </p>
+        <div className="grid items-center gap-5 md:grid-cols-2">
+          <div>
+            <Badge>Our services</Badge>
+            <h1>Execution support for trade-desk regularisation workflows</h1>
+            <p>
+              We combine domain-first operations with simple dashboards so your team sees what is pending, why it is
+              blocked, and what to do next.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+            <Image
+              src="/2.png"
+              alt="Trade workflow and reconciliation service preview"
+              width={662}
+              height={393}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <section>

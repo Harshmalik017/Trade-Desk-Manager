@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -13,7 +14,7 @@ const CONTACT_CHANNELS = [
   },
   {
     title: 'Call / WhatsApp',
-    value: '+91 90000 00000',
+    value: '8800441855',
     hint: 'Best for quick package discovery and onboarding calls.',
     icon: Phone,
   },
@@ -29,12 +30,25 @@ export function ConnectPage() {
   return (
     <>
       <section className="card hero colorful">
-        <Badge>Connect with us</Badge>
-        <h1>Let’s discuss your pending bill portfolio</h1>
-        <p>
-          Share your current bill status and we will suggest the right service plan with a practical timeline for
-          review and closure support.
-        </p>
+        <div className="grid items-center gap-5 md:grid-cols-2">
+          <div>
+            <Badge>Connect with us</Badge>
+            <h1>Let’s discuss your pending bill portfolio</h1>
+            <p>
+              Share your current bill status and we will suggest the right service plan with a practical timeline for
+              review and closure support.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+            <Image
+              src="/4.png"
+              alt="Connect with us and consultation support visual"
+              width={458}
+              height={423}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <section>
@@ -54,6 +68,16 @@ export function ConnectPage() {
             );
           })}
         </div>
+      </section>
+
+      <section className="card overflow-hidden">
+        <Image
+          src="/5.png"
+          alt="Business support and onboarding readiness visual"
+          width={651}
+          height={427}
+          className="h-auto w-full rounded-lg object-cover"
+        />
       </section>
 
       <section className="card soft">

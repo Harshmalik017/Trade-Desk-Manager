@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BadgeIndianRupee } from 'lucide-react';
 import { PACKAGES, RETAINERS } from '@/lib/packages';
 import { formatINR } from '@/lib/utils';
@@ -11,14 +12,27 @@ export function PricingPage() {
   return (
     <>
       <section className="card hero colorful">
-        <Badge variant="secondary">
-          <BadgeIndianRupee size={14} /> Pricing plans
-        </Badge>
-        <h1>Flexible pricing for one-time regularisation and monthly operations</h1>
-        <p>
-          Pick a package based on bill volume and complexity, then use monthly retainers for consistent tracking and
-          bank follow-up support.
-        </p>
+        <div className="grid items-center gap-5 md:grid-cols-2">
+          <div>
+            <Badge variant="secondary">
+              <BadgeIndianRupee size={14} /> Pricing plans
+            </Badge>
+            <h1>Flexible pricing for one-time regularisation and monthly operations</h1>
+            <p>
+              Pick a package based on bill volume and complexity, then use monthly retainers for consistent tracking
+              and bank follow-up support.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+            <Image
+              src="/3.png"
+              alt="Pricing and package selection visual"
+              width={529}
+              height={419}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <section>

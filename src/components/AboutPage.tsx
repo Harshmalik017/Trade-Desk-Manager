@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Building2, Landmark, ShieldCheck, Sparkles, UsersRound } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -26,14 +27,27 @@ export function AboutPage() {
   return (
     <>
       <section className="card hero colorful">
-        <Badge variant="secondary">
-          <Sparkles size={14} /> About BillClear Desk
-        </Badge>
-        <h1>A practical trade-compliance operating desk for modern teams</h1>
-        <p>
-          We help exporters and importers move open bills from pending to closure support using structured
-          reconciliation, documentation checks, and disciplined bank follow-ups.
-        </p>
+        <div className="grid items-center gap-5 md:grid-cols-[1.35fr_1fr]">
+          <div>
+            <Badge variant="secondary">
+              <Sparkles size={14} /> About BillClear Desk
+            </Badge>
+            <h1>A practical trade-compliance operating desk for modern teams</h1>
+            <p>
+              Led by consultant <b>Nikhil Goswami</b>, we help exporters and importers move open bills from pending to
+              closure support using structured reconciliation, documentation checks, and disciplined bank follow-ups.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
+            <Image
+              src="/Nikhil-Goswami.png"
+              alt="Consultant Nikhil Goswami"
+              width={433}
+              height={577}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <section>

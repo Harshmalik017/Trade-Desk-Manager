@@ -25,6 +25,9 @@
 - [x] Mock admin login and protected app routes for demo flow
 - [x] Pitch-ready interactions (channel, urgency, onboarding timeline)
 - [x] Reusable shadcn-style `components/ui` primitives and lucide icon integration
+- [x] Tailwind CSS and PostCSS wired for reusable variant-based UI and responsive pages
+- [x] Mobile-responsive header with hamburger menu for public and app navigation
+- [x] Marketing images placed from `public/` including consultant profile (Nikhil Goswami)
 - [x] Responsive layout and safe-area handling
 - [x] Memory bank created
 

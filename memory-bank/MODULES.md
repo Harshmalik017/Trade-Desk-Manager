@@ -4,7 +4,7 @@ Status legend: **Done** built and working on mock data, **Planned**, **Later** b
 
 | # | Module | Purpose | Routes | Key files | Status | Phase |
 |---|---|---|---|---|---|---|
-| M1 | App shell | Header, navigation, providers, theme tokens | all | `app/layout.tsx`, `components/AppHeader.tsx`, `app/globals.css` | Done | 1 |
+| M1 | App shell | Header, mobile hamburger navigation, providers, theme tokens | all | `app/layout.tsx`, `components/AppHeader.tsx`, `app/globals.css` | Done | 1 |
 | M2 | Dashboard | KPIs, Export and Import lanes, today's follow-ups | `/dashboard` | `components/DashboardView.tsx`, `LaneCard.tsx`, `StatusBar.tsx`, `KpiCard.tsx` | Done | 1 |
 | M2A | Marketing website | Public-facing Home, About, Services, Pricing, and Connect pages with CTA flow | `/`, `/about`, `/services`, `/pricing`, `/connect` | `components/LandingPage.tsx`, `components/AboutPage.tsx`, `components/ServicesPage.tsx`, `components/PricingPage.tsx`, `components/ConnectPage.tsx`, `app/page.tsx` | Done | 1 |
 | M2B | Admin auth (mock) | Demo admin login and route protection | `/admin/login` | `context/auth-context.tsx`, `components/AdminLogin.tsx`, `components/ProtectedRoute.tsx` | Done (mock) | 1 |
@@ -14,7 +14,7 @@ Status legend: **Done** built and working on mock data, **Planned**, **Later** b
 | M6 | Pitch and packages | Package and retainer recommender, proposal text, pitch-ready controls | `/pitch`, `/pitch/[clientId]` | `components/PitchBuilder.tsx`, `PlanCard.tsx`, `lib/packages.ts`, `lib/proposal.ts` | Done | 1 |
 | M7 | Toast and feedback | Lightweight confirmations | global | `components/Toast.tsx` | Done | 1 |
 | M8 | Data layer | Types, mock data, context store | global | `lib/types.ts`, `lib/mock-data.ts`, `context/desk-context.tsx` | Done (mock) | 1 |
-| M8A | Reusable UI primitives | Shared shadcn-style component API for consistent UI | global | `components/ui/*`, `lib/utils.ts` | Done | 1 |
+| M8A | Reusable UI primitives | Shared shadcn-style component API with Tailwind variants for consistent UI | global | `components/ui/*`, `lib/utils.ts`, `tailwind.config.ts` | Done | 1 |
 | M9 | Backend API and DB | Persistence for clients, bills, documents, notes | `/api/*` | `src/server/*` (new) | Planned | 2 |
 | M10 | Auth and roles | Sign-in, Owner and Associate roles | `/login` | Auth.js config (new) | Planned | 2 |
 | M11 | Document storage | Upload and retrieve bill documents | inside bill detail | storage service (new) | Planned | 2 |

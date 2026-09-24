@@ -4,9 +4,10 @@
 
 - Phase 1 (frontend UI on mock data) is complete and now includes launch-ready UX improvements:
   - multi-page public website (Home, About, Services, Pricing, Connect),
+  - responsive mobile hamburger header navigation,
   - mock admin login and protected dashboard routes,
   - interactive pitch-ready proposal controls,
-  - reusable shadcn-style UI primitives and lucide icon system.
+  - Tailwind-powered shadcn-style UI primitives and lucide icon system.
 - Next up: Phase 2 kickoff. Confirm the backend stack (TRD section 7) and write ADR-001.
 
 ## Changelog
@@ -20,13 +21,14 @@
 | 2026-09-25 | Added interactive pitch-ready controls (channel, urgency, timeline), reusable UI primitives, and lucide icons |
 | 2026-09-25 | Documented required frontend image asset list for `public/images/*` in README |
 | 2026-09-25 | Expanded to colorful multi-page marketing website (`/`, `/about`, `/services`, `/pricing`, `/connect`) and moved login button after header menu items |
+| 2026-09-25 | Added mobile hamburger navigation, wired Tailwind + PostCSS config, migrated reusable UI components to Tailwind variants, and placed uploaded public images across marketing pages (including consultant image for Nikhil Goswami) |
 
 ## Decisions
 
 | ID | Decision | Status |
 |---|---|---|
 | D1 | Export and Import always separate in UI and data | Accepted |
-| D2 | Plain CSS with tokens instead of a CSS framework, to keep Phase 1 dependency-light | Accepted |
+| D2 | Tailwind CSS plus existing design tokens for responsive marketing surfaces and reusable UI variants | Accepted |
 | D3 | Mock data with a fixed demo date for repeatable demos | Accepted (remove in Phase 2) |
 | D4 | Backend as Next.js Route Handlers + PostgreSQL + Prisma | Proposed, confirm in Phase 2 |
 
