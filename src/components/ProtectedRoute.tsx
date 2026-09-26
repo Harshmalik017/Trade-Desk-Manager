@@ -3,6 +3,7 @@
 import { useEffect, type ReactNode } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
+import { AdminShell } from './AdminShell';
 
 export function ProtectedRoute({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -23,5 +24,5 @@ export function ProtectedRoute({ children }: { children: ReactNode }) {
     return null;
   }
 
-  return <>{children}</>;
+  return <AdminShell>{children}</AdminShell>;
 }

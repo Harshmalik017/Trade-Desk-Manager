@@ -37,7 +37,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <DeskProvider>
               <AppHeader />
               <NetworkStatusBanner />
-              <main>{children}</main>
+              <main>
+                <div className="site-main-shell">{children}</div>
+              </main>
               <AppFooter />
             </DeskProvider>
           </ToastProvider>
