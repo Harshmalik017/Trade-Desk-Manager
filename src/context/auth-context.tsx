@@ -2,8 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { DEMO_ADMIN_EMAIL, DEMO_ADMIN_PASSWORD } from '@/lib/constants';
-
-const STORAGE_KEY = 'billclear_admin_session';
+import { clearSessionCookie, readSessionCookie, writeSessionCookie } from '@/lib/auth/session';
 
 interface AuthValue {
   isReady: boolean;
@@ -19,14 +18,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isReady, setIsReady] = useState(false);
   const [adminEmail, setAdminEmail] = useState<string | null>(null);
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setAdminEmail(stored);
-    } finally {
-      setIsReady(true);
-    }
+  const syncFromCookie = useCallback(() => {
+    setAdminEmail(readSessionCookie()?.email ?? null);
   }, []);
+
+  useEffect(() => {
+    syncFromCookie();
+    setIsReady(true);
+
+    // Keep tabs in sync when the session is cleared or expires elsewhere.
+    window.addEventListener('focus', syncFromCookie);
+    const interval = window.setInterval(syncFromCookie, 60_000);
+    return () => {
+      window.removeEventListener('focus', syncFromCookie);
+      window.clearInterval(interval);
+    };
+  }, [syncFromCookie]);
 
   const login = useCallback((email: string, password: string) => {
     const cleanEmail = email.trim().toLowerCase();
@@ -39,13 +46,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return { ok: false, error: 'Invalid credentials. Use the demo admin credentials shown below.' };
     }
 
-    localStorage.setItem(STORAGE_KEY, cleanEmail);
+    writeSessionCookie(cleanEmail);
     setAdminEmail(cleanEmail);
     return { ok: true };
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem(STORAGE_KEY);
+    clearSessionCookie();
     setAdminEmail(null);
   }, []);
 
