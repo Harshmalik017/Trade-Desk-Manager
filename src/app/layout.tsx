@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { AppFooter } from '@/components/AppFooter';
 import { AppHeader } from '@/components/AppHeader';
+import { NetworkStatusBanner } from '@/components/NetworkStatusBanner';
 import { ToastProvider } from '@/components/Toast';
 import { AuthProvider } from '@/context/auth-context';
 import { DeskProvider } from '@/context/desk-context';
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ToastProvider>
             <DeskProvider>
               <AppHeader />
+              <NetworkStatusBanner />
               <main>{children}</main>
               <AppFooter />
             </DeskProvider>

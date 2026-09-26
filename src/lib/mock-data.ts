@@ -1,4 +1,4 @@
-import type { Bill, BillStatus, Client, Lane } from './types';
+import type { ActivityLog, ArchiveRecord, Bill, BillStatus, Client, CompanyProfile, Lane } from './types';
 
 /** Fictional demo data. Never put real client data here. */
 export const seedClients: Client[] = [
@@ -43,3 +43,26 @@ export const seedBills: Bill[] = rows.map((r, i) => ({
   status: r[8],
   docs: r[9].split('').map((c) => c === '1'),
 }));
+
+export const seedLogs: ActivityLog[] = [
+  { id: 'l1', actor: 'Nikhil Goswami', action: 'Marked docs complete for SB 6829911', lane: 'EX', status: 'UNDER_REVIEW', timestamp: '2026-09-24T11:40:00Z' },
+  { id: 'l2', actor: 'Nikhil Goswami', action: 'Updated follow-up note for BoE 8812045', lane: 'IM', status: 'DOCS_PENDING', timestamp: '2026-09-24T12:25:00Z' },
+  { id: 'l3', actor: 'Desk Associate', action: 'Moved SB 7133998 to WITH_BANK', lane: 'EX', status: 'WITH_BANK', timestamp: '2026-09-24T14:05:00Z' },
+  { id: 'l4', actor: 'Desk Associate', action: 'Closed BoE 8770313 after settlement proof', lane: 'IM', status: 'CLOSED', timestamp: '2026-09-25T09:10:00Z' },
+  { id: 'l5', actor: 'Nikhil Goswami', action: 'Sent package estimate to Kapoor Auto Components', lane: 'EX', status: 'UNDER_REVIEW', timestamp: '2026-09-25T10:42:00Z' },
+  { id: 'l6', actor: 'Desk Associate', action: 'Requested discrepancy clarification from buyer', lane: 'EX', status: 'DOCS_PENDING', timestamp: '2026-09-25T13:16:00Z' },
+];
+
+export const seedArchive: ArchiveRecord[] = [
+  { id: 'a1', client: 'Aarav Handicrafts LLP', lane: 'EX', reference: 'SB 7188802', closedOn: '2026-09-22', summary: 'Proceeds matched and closure confirmed with AD bank.' },
+  { id: 'a2', client: 'Mehra Electronics Trading', lane: 'IM', reference: 'BoE 8770313', closedOn: '2026-09-18', summary: 'Remittance proof and entry reconciliation accepted.' },
+  { id: 'a3', client: 'Kapoor Auto Components', lane: 'IM', reference: 'BoE 8759042', closedOn: '2026-09-11', summary: 'Legacy discrepancy resolved and status regularised.' },
+];
+
+export const seedCompanyProfile: CompanyProfile = {
+  companyName: 'BillClear Desk',
+  consultantName: 'Nikhil Goswami',
+  supportEmail: 'desk@billcleardesk.demo',
+  supportPhone: '8800441855',
+  city: 'Delhi',
+};

@@ -12,6 +12,9 @@ const APP_TABS = [
   { href: '/dashboard', label: 'Dashboard', match: '/dashboard' },
   { href: '/clients', label: 'Clients', match: '/clients' },
   { href: '/bills/export', label: 'Bill tracker', match: '/bills' },
+  { href: '/logs', label: 'Logs', match: '/logs' },
+  { href: '/archive', label: 'Archive', match: '/archive' },
+  { href: '/settings', label: 'Settings', match: '/settings' },
   { href: '/pitch', label: 'Pitch & packages', match: '/pitch' },
 ];
 
@@ -21,6 +24,8 @@ const WEBSITE_TABS = [
   { href: '/services', label: 'Our services', match: '/services' },
   { href: '/pricing', label: 'Pricing', match: '/pricing' },
   { href: '/connect', label: 'Connect with us', match: '/connect' },
+  { href: '/privacy-policy', label: 'Privacy policy', match: '/privacy-policy' },
+  { href: '/terms-and-conditions', label: 'Terms', match: '/terms-and-conditions' },
 ];
 
 export function AppHeader() {

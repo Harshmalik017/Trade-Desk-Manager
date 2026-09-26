@@ -32,3 +32,29 @@ export interface Bill {
   /** Aligned to DOC_CHECKLISTS[lane]. */
   docs: boolean[];
 }
+
+export interface ActivityLog {
+  id: string;
+  actor: string;
+  action: string;
+  lane: Lane;
+  status: BillStatus;
+  timestamp: string;
+}
+
+export interface ArchiveRecord {
+  id: string;
+  client: string;
+  lane: Lane;
+  reference: string;
+  closedOn: string;
+  summary: string;
+}
+
+export interface CompanyProfile {
+  companyName: string;
+  consultantName: string;
+  supportEmail: string;
+  supportPhone: string;
+  city: string;
+}

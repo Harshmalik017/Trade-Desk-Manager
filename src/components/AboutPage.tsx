@@ -26,7 +26,7 @@ const HIGHLIGHTS = [
 export function AboutPage() {
   return (
     <>
-      <section className="card hero colorful">
+      <section className="card hero colorful clay">
         <div className="grid items-center gap-5 md:grid-cols-[1.35fr_1fr]">
           <div>
             <Badge variant="secondary">
@@ -38,13 +38,13 @@ export function AboutPage() {
               closure support using structured reconciliation, documentation checks, and disciplined bank follow-ups.
             </p>
           </div>
-          <div className="mx-auto max-w-[220px]">
+          <div className="mx-auto max-w-[210px]">
             <Image
               src="/Nikhil-Goswami.png"
               alt="Consultant Nikhil Goswami"
               width={433}
               height={577}
-              className="h-auto w-full rounded-lg object-contain"
+              className="h-[210px] w-[210px] rounded-full border-4 border-white/80 object-cover shadow-lg"
             />
           </div>
         </div>

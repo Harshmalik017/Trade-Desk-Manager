@@ -28,7 +28,15 @@
 - [x] Tailwind CSS and PostCSS wired for reusable variant-based UI and responsive pages
 - [x] Mobile-responsive header with hamburger menu for public and app navigation
 - [x] Marketing images placed from `public/` including consultant profile (Nikhil Goswami)
+- [x] Consultant profile image treatment updated to circular framed presentation for About page polish
 - [x] Responsive layout and safe-area handling
+- [x] Privacy Policy and Terms & Conditions public pages added and linked in shell navigation
+- [x] Admin modules expanded with Logs, Archive, and Settings pages
+- [x] Reusable dialog pattern with red "X" close action and consistent modal styling
+- [x] Reusable empty-state and no-network-state components integrated in admin workflows
+- [x] Global offline banner in app shell for network-awareness
+- [x] Table upgrades with 10-row pagination and blue "View" action buttons
+- [x] CSV export flows for Clients, Bills, Logs, and Archive tables
 - [x] Memory bank created
 
 ## Acceptance criteria
@@ -37,6 +45,7 @@
 - Export and Import never appear mixed in one table.
 - Changing a bill's status or ticking a document updates the dashboard and client views immediately.
 - Proposal text always contains the AD Bank disclaimer.
+- Logs/archive/settings pages stay protected behind admin login.
 
 ## Handoff to Phase 2
 

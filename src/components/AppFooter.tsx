@@ -30,6 +30,12 @@ export function AppFooter() {
             <Link href="/connect" className="text-violet-100 hover:text-white">
               Connect
             </Link>
+            <Link href="/privacy-policy" className="text-violet-100 hover:text-white">
+              Privacy policy
+            </Link>
+            <Link href="/terms-and-conditions" className="text-violet-100 hover:text-white">
+              Terms
+            </Link>
           </div>
         </div>
         <div className="flex flex-col justify-between gap-2 border-t border-white/20 pt-4 text-xs text-violet-100 sm:flex-row sm:items-center">

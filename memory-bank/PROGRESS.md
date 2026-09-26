@@ -7,7 +7,10 @@
   - responsive mobile hamburger header navigation,
   - mock admin login and protected dashboard routes,
   - interactive pitch-ready proposal controls,
-  - Tailwind-powered shadcn-style UI primitives and lucide icon system.
+  - Tailwind-powered shadcn-style UI primitives and lucide icon system,
+  - legal pages (Privacy Policy, Terms & Conditions),
+  - protected admin expansion (Logs, Archive, Settings),
+  - reusable dialog, empty-state, no-network-state, pagination, and CSV export patterns.
 - Next up: Phase 2 kickoff. Confirm the backend stack (TRD section 7) and write ADR-001.
 
 ## Changelog
@@ -22,6 +25,7 @@
 | 2026-09-25 | Documented required frontend image asset list for `public/images/*` in README |
 | 2026-09-25 | Expanded to colorful multi-page marketing website (`/`, `/about`, `/services`, `/pricing`, `/connect`) and moved login button after header menu items |
 | 2026-09-25 | Added mobile hamburger navigation, wired Tailwind + PostCSS config, migrated reusable UI components to Tailwind variants, and placed uploaded public images across marketing pages (including consultant image for Nikhil Goswami) |
+| 2026-09-26 | Completed Phase 1 UI polish: claymorphism styling, legal pages, logs/archive/settings admin modules, global offline banner + inline no-network cards, table pagination, blue View actions, red-X dialog close actions, and CSV exports for clients/bills/logs/archive |
 
 ## Decisions
 
