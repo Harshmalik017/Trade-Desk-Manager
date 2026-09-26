@@ -18,16 +18,16 @@ export function PricingPage() {
 
   return (
     <>
-      <section className="card hero colorful">
+      <section className="card hero hero-tall colorful">
         <div className="grid items-center gap-5 md:grid-cols-2">
           <div>
             <Badge variant="secondary">
               <BadgeIndianRupee size={14} /> Pricing plans
             </Badge>
-            <h1>Flexible pricing for one-time regularisation and monthly operations</h1>
+            <h1>Flexible engagement plans for regularisation and ongoing advisory support</h1>
             <p>
-              Pick a package based on bill volume and complexity, then use monthly retainers for consistent tracking
-              and bank follow-up support.
+              Choose an engagement based on bill volume and complexity, with optional monthly advisory support for
+              continuous tracking and bank follow-up coordination.
             </p>
           </div>
           <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">

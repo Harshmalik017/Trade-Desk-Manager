@@ -37,6 +37,10 @@
 - [x] Global offline banner in app shell for network-awareness
 - [x] Table upgrades with 10-row pagination and blue "View" action buttons
 - [x] CSV export flows for Clients, Bills, Logs, and Archive tables
+- [x] Public-page language realigned to consultant-led service positioning (less tool/pitch-first phrasing)
+- [x] Landing cleanup completed: trust factors moved after hero, KPI metrics strip removed, consultation CTA centered with themed background
+- [x] Testimonials enhanced with circular company-initial badges and cleaner hierarchy
+- [x] Hero sections expanded for stronger visual balance across Home/About/Services/Pricing/Connect
 - [x] Memory bank created
 
 ## Acceptance criteria

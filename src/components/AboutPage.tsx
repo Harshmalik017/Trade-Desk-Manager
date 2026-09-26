@@ -26,25 +26,26 @@ const HIGHLIGHTS = [
 export function AboutPage() {
   return (
     <>
-      <section className="card hero colorful clay">
+      <section className="card hero hero-tall colorful clay">
         <div className="grid items-center gap-5 md:grid-cols-[1.35fr_1fr]">
           <div>
             <Badge variant="secondary">
               <Sparkles size={14} /> About BillClear Desk
             </Badge>
-            <h1>A practical trade-compliance operating desk for modern teams</h1>
+            <h1>Bridging banks and traders with practical compliance execution</h1>
             <p>
-              Led by consultant <b>Nikhil Goswami</b>, we help exporters and importers move open bills from pending to
-              closure support using structured reconciliation, documentation checks, and disciplined bank follow-ups.
+              Led by consultant <b>Nikhil Goswami</b>, our engagement model helps exporters and importers resolve
+              pending bills through structured reconciliation, documentation clarity, and disciplined AD bank follow-up
+              support.
             </p>
           </div>
-          <div className="mx-auto max-w-[210px]">
+          <div className="mx-auto max-w-[240px] rounded-full border border-slate-200/70 bg-white/70 p-2 dark:border-slate-700/70 dark:bg-slate-900/40">
             <Image
               src="/Nikhil-Goswami.png"
               alt="Consultant Nikhil Goswami"
               width={433}
               height={577}
-              className="h-[210px] w-[210px] rounded-full border-4 border-white/80 object-cover shadow-lg"
+              className="h-[220px] w-[220px] rounded-full border-4 border-white/80 object-contain bg-white shadow-lg"
             />
           </div>
         </div>

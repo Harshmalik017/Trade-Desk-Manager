@@ -23,7 +23,7 @@ const SERVICES = [
   },
   {
     title: 'Client communication packs',
-    text: 'Pitch-ready package recommendations and proposal drafts for onboarding and renewal conversations.',
+    text: 'Clear recommendation notes and communication templates for onboarding and renewal discussions.',
     icon: Handshake,
   },
 ];
@@ -31,14 +31,14 @@ const SERVICES = [
 export function ServicesPage() {
   return (
     <>
-      <section className="card hero colorful">
+      <section className="card hero hero-tall colorful">
         <div className="grid items-center gap-5 md:grid-cols-2">
           <div>
             <Badge>Our services</Badge>
-            <h1>Execution support for trade-desk regularisation workflows</h1>
+            <h1>Execution-led services for faster trade-compliance regularisation</h1>
             <p>
-              We combine domain-first operations with simple dashboards so your team sees what is pending, why it is
-              blocked, and what to do next.
+              We help teams identify what is blocked, align bank-ready documentation, and maintain follow-up momentum
+              until pending cases move toward closure.
             </p>
           </div>
           <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">
@@ -73,7 +73,7 @@ export function ServicesPage() {
 
       <section className="card cta">
         <h2>Want us to evaluate your current open bills?</h2>
-        <p className="muted">Share your bill count and lane breakup to get the right package recommendation.</p>
+        <p className="muted">Share your bill count and lane breakup to get a right-fit service engagement plan.</p>
         <div className="row actions cta-links">
           <Button asChild variant="outline">
             <Link href="/pricing">View pricing plans</Link>

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   CircleCheckBig,
-  HandCoins,
   MessageSquareMore,
   Quote,
   ShieldCheck,
@@ -56,16 +55,24 @@ const TESTIMONIALS = [
 ];
 
 export function LandingPage() {
+  const getInitials = (name: string) =>
+    name
+      .split(' ')
+      .filter((part) => part.length > 0)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase() ?? '')
+      .join('');
+
   return (
     <>
-      <section className="hero card colorful overflow-hidden">
+      <section className="hero hero-tall card colorful overflow-hidden">
         <div className="grid items-center gap-5 md:grid-cols-2">
           <div>
-            <Badge>Pitch-ready trade desk website</Badge>
-            <h1>Close EDPMS and IDPMS bills faster with a colorful, client-ready desk</h1>
+            <Badge>Trade compliance consulting</Badge>
+            <h1>We bridge critical gaps between banks and traders for faster bill regularisation</h1>
             <p>
-              BillClear Desk gives your team a modern platform for pending bills, due-date follow-ups, package
-              selection, and polished client communication.
+              Led by Nikhil Goswami, we help export and import businesses structure pending bill portfolios, close
+              documentation mismatches, and move AD bank follow-ups toward practical closure.
             </p>
             <div className="row actions">
               <Button asChild variant="outline">
@@ -75,7 +82,7 @@ export function LandingPage() {
               </Button>
               <Button asChild variant="ghost">
                 <Link href="/pricing">
-                  <HandCoins size={16} /> View pricing
+                  <Trophy size={16} /> View engagement plans
                 </Link>
               </Button>
               <Button asChild variant="ghost">
@@ -98,23 +105,31 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="grid g4 pitch-metrics">
-        <Card className="kpi">
-          <b>2 lanes</b>
-          <span>Export and import are always tracked separately</span>
-        </Card>
-        <Card className="kpi">
-          <b>4 statuses</b>
-          <span>From docs pending to closure with daily visibility</span>
-        </Card>
-        <Card className="kpi">
-          <b>5 docs</b>
-          <span>Checklist-based reconciliation per lane</span>
-        </Card>
-        <Card className="kpi">
-          <b>Fast onboarding</b>
-          <span>Recommend the right package and move from discovery to execution quickly</span>
-        </Card>
+      <section className="card trust-factors">
+        <h2 className="section mt-0">Trust factors</h2>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Card className="trust-factor-card">
+            <div className="step-icon">
+              <Trophy size={18} />
+            </div>
+            <p className="trust-stat">5+ years</p>
+            <p className="trust-note">Trade compliance consulting experience</p>
+          </Card>
+          <Card className="trust-factor-card">
+            <div className="step-icon">
+              <Users size={18} />
+            </div>
+            <p className="trust-stat">50+ clients</p>
+            <p className="trust-note">Handled across export and import workflows</p>
+          </Card>
+          <Card className="trust-factor-card">
+            <div className="step-icon">
+              <Verified size={18} />
+            </div>
+            <p className="trust-stat">Banking + independent</p>
+            <p className="trust-note">Practical advisory with execution-focused support</p>
+          </Card>
+        </div>
       </section>
 
       <section>
@@ -153,37 +168,10 @@ export function LandingPage() {
             </p>
           </Card>
           <Card>
-            <h3 className="h3-sm">Pitch and propose quickly</h3>
+            <h3 className="h3-sm">Advisory with execution discipline</h3>
             <p className="muted">
-              Use structured pricing and package workflows to align internal teams and speed up onboarding.
+              We convert complex pending cases into clear priorities, actions, and accountable follow-up movement.
             </p>
-          </Card>
-        </div>
-      </section>
-
-      <section className="card soft">
-        <h2 className="section mt-0">Trust factors</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <Card>
-            <div className="step-icon">
-              <Trophy size={18} />
-            </div>
-            <h3 className="h3-sm">5+ years experience</h3>
-            <p className="muted">Focused trade-compliance and bill regularisation support across banking workflows.</p>
-          </Card>
-          <Card>
-            <div className="step-icon">
-              <Users size={18} />
-            </div>
-            <h3 className="h3-sm">50+ clients handled</h3>
-            <p className="muted">Supported exporters and importers through structured closure-oriented engagement.</p>
-          </Card>
-          <Card>
-            <div className="step-icon">
-              <Verified size={18} />
-            </div>
-            <h3 className="h3-sm">Banking + independent consultant background</h3>
-            <p className="muted">Combines institutional process depth with founder-led consulting agility.</p>
           </Card>
         </div>
       </section>
@@ -191,16 +179,22 @@ export function LandingPage() {
       <section>
         <h2 className="section">Client testimonials</h2>
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
-          {TESTIMONIALS.map((item) => (
+          {TESTIMONIALS.map((item, index) => (
             <Card key={item.name} className="min-w-[280px] snap-start sm:min-w-[360px]">
-              <div className="mb-3 flex items-center justify-between">
+              <div className="mb-3 flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-violet-200 bg-violet-100 text-sm font-semibold text-violet-700 dark:border-violet-800 dark:bg-violet-900/50 dark:text-violet-200">
+                    {getInitials(item.name)}
+                  </span>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300">Client {index + 1}</span>
+                </div>
                 <div className="flex items-center gap-1 text-amber-500">
                   {Array.from({ length: item.rating }).map((_, i) => (
                     <Star key={`${item.name}-${i}`} size={15} fill="currentColor" />
                   ))}
                 </div>
-                <Quote size={16} className="text-violet-500" />
               </div>
+              <Quote size={16} className="text-violet-500" />
               <p className="muted">{item.text}</p>
               <p className="mt-3 text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</p>
             </Card>
@@ -208,13 +202,13 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="card soft">
+      <section className="card consultation-cta text-center">
         <h2>Need a consultation before onboarding?</h2>
         <p className="muted">Share your bill count and get a right-fit execution plan with timeline clarity.</p>
-        <div className="row actions">
+        <div className="row actions justify-center">
           <Button asChild variant="outline">
             <Link href="/pricing">
-              <HandCoins size={16} /> Review pricing
+              <Trophy size={16} /> Review plans
             </Link>
           </Button>
           <Button asChild variant="ghost">

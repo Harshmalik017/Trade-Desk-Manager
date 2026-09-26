@@ -29,14 +29,14 @@ const CONTACT_CHANNELS = [
 export function ConnectPage() {
   return (
     <>
-      <section className="card hero colorful">
+      <section className="card hero hero-tall colorful">
         <div className="grid items-center gap-5 md:grid-cols-2">
           <div>
             <Badge>Connect with us</Badge>
             <h1>Let’s discuss your pending bill portfolio</h1>
             <p>
-              Share your current bill status and we will suggest the right service plan with a practical timeline for
-              review and closure support.
+              Share your current bill position and we will suggest the right consulting engagement with a practical
+              roadmap for review and closure support.
             </p>
           </div>
           <div className="overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-900">

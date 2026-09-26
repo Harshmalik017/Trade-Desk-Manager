@@ -11,6 +11,7 @@
   - legal pages (Privacy Policy, Terms & Conditions),
   - protected admin expansion (Logs, Archive, Settings),
   - reusable dialog, empty-state, no-network-state, pagination, and CSV export patterns.
+  - service-first public copy cleanup with simplified landing cards, testimonial initials, and improved hero proportions across public pages.
 - Next up: Phase 2 kickoff. Confirm the backend stack (TRD section 7) and write ADR-001.
 
 ## Changelog
@@ -26,6 +27,7 @@
 | 2026-09-25 | Expanded to colorful multi-page marketing website (`/`, `/about`, `/services`, `/pricing`, `/connect`) and moved login button after header menu items |
 | 2026-09-25 | Added mobile hamburger navigation, wired Tailwind + PostCSS config, migrated reusable UI components to Tailwind variants, and placed uploaded public images across marketing pages (including consultant image for Nikhil Goswami) |
 | 2026-09-26 | Completed Phase 1 UI polish: claymorphism styling, legal pages, logs/archive/settings admin modules, global offline banner + inline no-network cards, table pagination, blue View actions, red-X dialog close actions, and CSV exports for clients/bills/logs/archive |
+| 2026-09-26 | Refined public UX language and layout: removed pitch/tool-centric landing labels and KPI cards, moved trust factors after hero with theme styling, added testimonial company initials, centered consultation CTA card, and expanded hero section presentation across About/Services/Pricing/Connect |
 
 ## Decisions
 
